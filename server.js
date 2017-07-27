@@ -29,7 +29,7 @@ app.use((req, res, next) => {
     console.log(`${now}: ${req.method} ${req.url}`);
     // Need to call next(), in order for the anonymous, middleware call to continue. 
     next();
-})
+});
 
 /*
 // Register maintenance middleware
@@ -48,12 +48,12 @@ app.use(express.static(__dirname + '/public'));
 // register some HandleBars data to be used with {{getCurrentYear}} in an hbs template.
 hbs.registerHelper('getCurrentYear', () => {
     return new Date().getFullYear();
-})
+});
 
 // register some HandleBars method to be used with {{screamIt welcomeMessage}} in an hbs template.
 hbs.registerHelper('screamIt', (text) => {
     return text.toUpperCase();
-})
+});
 
 app.get('/', (req, res) => {
     // res.send('<h1>Hello Express</h1>');
@@ -71,7 +71,7 @@ app.get('/about', (req, res) => {
     res.render('about.hbs', {
         pageTitle: 'About Page'
     });
-})
+});
 
 app.get('/bad', (req, res) => {
     res.send({
