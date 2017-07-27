@@ -2,6 +2,12 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+// heroku will set an environment variable to use for the listening port (see app.listen
+// call further below).  heroku will change it everytime you deploy your app, so need to 
+// get it / set it here, in order for node to be able to use it.
+// Note that, in order to run locally, we will need to use a local port (3000) instead.
+const port = process.env.PORT || 3000;
+
 var app = express();
 
 // register the location to use hbs partials (exa., footer.hbs) from.
@@ -73,6 +79,6 @@ app.get('/bad', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000');
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`);
 });
