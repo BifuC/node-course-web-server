@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 });
 
 /*
-// Register maintenance middleware
+// Register the maintenance middleware
 app.use((req, res, next) => {
     res.render('maintenance.hbs');
     // By not calling next() here, any get handlers below will never be processed.
