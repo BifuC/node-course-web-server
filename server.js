@@ -41,8 +41,10 @@ app.use((req, res, next) => {
 })
 */
 
-// You need to register this directory middleware after the above Maintenance middleware.
+// You need to register this directory middleware(indicated by app.use) after the above Maintenance middleware.
 // If you don't, pages in the public  directory (help.html) will still render before Maintenance can stop them.
+// The line below allows you to directly serve up any static content from a directory, using:
+//     http://localhost:3000/help.html
 app.use(express.static(__dirname + '/public'));
 
 // register some HandleBars data to be used with {{getCurrentYear}} in an hbs template.
