@@ -37,7 +37,7 @@ app.use((req, res, next) => {
     res.render('maintenance.hbs');
     // By not calling next() here, any get handlers below will never be processed.
     // This prevents the user from getting past the Maintenance page.
-    next();
+    //next();
 })
 */
 
@@ -47,7 +47,7 @@ app.use((req, res, next) => {
 //     http://localhost:3000/help.html
 app.use(express.static(__dirname + '/public'));
 
-// register some HandleBars data to be used with {{getCurrentYear}} in an hbs template.
+// register some commonly used HandleBars' data to be used with {{getCurrentYear}} in an hbs template.
 hbs.registerHelper('getCurrentYear', () => {
     return new Date().getFullYear();
 });
